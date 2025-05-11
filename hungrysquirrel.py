@@ -62,7 +62,7 @@ def main():
     FPSCLOCK = pygame.time.Clock()
     pygame.display.set_icon(pygame.image.load('gameicon.png'))
     DISPLAYSURF = pygame.display.set_mode((WINWIDTH, WINHEIGHT))
-    pygame.display.set_caption('Squirrel Eat Squirrel')
+    pygame.display.set_caption('Hungry Squirrel')
     BASICFONT = pygame.font.Font('freesansbold.ttf', 32)
 
     # load the image files
@@ -73,12 +73,8 @@ def main():
         GRASSIMAGES.append(pygame.image.load('grass%s.png' % i))
         
     # load and play background music
-    try:
-        pygame.mixer.music.load('mercury.mp3')  # You need to download the track and save it as mercury.mp3
-        pygame.mixer.music.set_volume(0.5)      # Set volume to 50%
-        pygame.mixer.music.play(-1)             # -1 means play on repeat indefinitely
-    except pygame.error:
-        print("Could not load or play the background music.")
+    pygame.mixer.music.load('music/BuzzsawsOnMercury.wav')
+    pygame.mixer.music.play(-1, start=5.2)
 
     while True:
         runGame()
